@@ -1,21 +1,21 @@
 // 加载所有的依赖
-window.jQuery = require('../node_modules/jquery/jquery.min.js');
+window.jQuery = require('../node_modules/jquery/dist/jquery.min.js');
 require('../node_modules/angular/angular.min.js');
 require('../node_modules/angular-route/angular-route.min.js');
 
 // 获取控制器与服务的依赖
-var homeController = require('./controllers/homeController');
-var usersService = require('./services/usersService');
+var homeController = require('./controllers/homeController.js');
+var usersService = require('./services/usersService.js');
 
-// module up
-var app = angular.module('app', [ 'ngRoute']);
+// module up (myApp is name)
+var myApp = angular.module('myApp', ['ngRoute']);
 
 // routes and such
-app.config(['$routeProvider', function($routeProvider) {
+myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/home',
     {
-      templateUrl: 'partials/home.html',
+      templateUrl: 'app/partials/home.html',
       controller: 'HomeController'
     })
     .otherwise(
@@ -25,7 +25,7 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 // create factories
-app.factory('usersService', usersService);
+myApp.factory('usersService', usersService);
 
 // create controllers
-app.controller('HomeController', ['$scope', 'usersService', homeController]);
+myApp.controller('HomeController', ['$scope', 'usersService', homeController]);

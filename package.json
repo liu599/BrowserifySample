@@ -2,7 +2,7 @@
   "name": "BrowserifySample",
   "version": "1.0.0",
   "description": "browserify构建",
-  "main": "main.js",
+  "main": "./app/main.js",
   "keywords": [
     "browserify"
   ],
